@@ -30,11 +30,9 @@ def create_interaction_matrix(history_data, track_ids_save_path, save_matrix_pat
     df = history_data.copy()
     df['playcount'] = df['playcount'].astype(np.float64)
     
-    # ✅ filtered_data ke ORDER se track_ids — alphabetical nahi
     ordered_track_ids = filtered_data["track_id"].values
     np.save(track_ids_save_path, ordered_track_ids, allow_pickle=True)
     
-    # ✅ Manual mapping — filtered_data ke order mein
     track_id_to_idx = {tid: idx for idx, tid in enumerate(ordered_track_ids)}
     
     df = df.compute() if hasattr(df, 'compute') else df
@@ -87,18 +85,14 @@ def main():
     user_data = dd.read_csv(user_listening_history_data_path)
     songs_data = pd.read_csv(songs_data_path)
     
-    # ✅ Common tracks nikalo
     history_track_ids = user_data.loc[:, "track_id"].unique().compute().tolist()
     songs_track_ids = set(songs_data["track_id"].values)
     common_track_ids = [t for t in history_track_ids if t in songs_track_ids]
     
-    # ✅ filtered_data banao
     filtered_data = filter_songs_data(songs_data, common_track_ids, filtered_data_save_path)
     
-    # ✅ User history filter karo
     user_data_filtered = user_data[user_data["track_id"].isin(common_track_ids)]
     
-    # ✅ Interaction matrix — filtered_data ke ORDER mein
     create_interaction_matrix(user_data_filtered, track_ids_save_path, interaction_matrix_save_path, filtered_data)
 
 if __name__ == "__main__":
