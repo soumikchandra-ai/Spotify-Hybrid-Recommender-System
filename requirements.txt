@@ -6,3 +6,4 @@ category-encoders
 scipy
 dvc
 streamlit
+dask[dataframe]

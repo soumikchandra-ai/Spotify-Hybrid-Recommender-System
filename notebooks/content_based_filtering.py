@@ -50,9 +50,10 @@ def calculate_similarity_scores(input_vector,data):
     similarity_scores=cosine_similarity(input_vector,data)
     return similarity_scores
 
-def recommend(song_name,songs_data,transformed_data,k=10):
+def content_recommend(song_name,artist_name,songs_data,transformed_data,k=10):
 
     song_name=song_name.lower()
+    artist_name=artist_name.lower()
 
     song_row=songs_data.loc[songs_data["name"].str.lower()==song_name]
 
