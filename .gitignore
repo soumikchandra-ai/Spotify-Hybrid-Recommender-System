@@ -2,4 +2,3 @@ vrec/
 transformer.joblib
 data/transformed_data.npz
 data/*.csv
-data
