@@ -9,7 +9,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from data_cleaning import data_for_content_filtering
 from scipy.sparse import save_npz
 
-#Cleaned Data
+#Cleaned Data Path Specified
 CLEANED_DATA_PATH="data/cleaned_data.csv"
 
 #Columns to transform
