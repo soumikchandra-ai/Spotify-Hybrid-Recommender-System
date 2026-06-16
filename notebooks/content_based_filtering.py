@@ -6,7 +6,7 @@ from category_encoders.count import CountEncoder
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics.pairwise import cosine_similarity
-from data_cleaning import data_for_content_filtering
+from notebooks.data_cleaning import data_for_content_filtering
 from scipy.sparse import save_npz
 
 #Cleaned Data Path Specified

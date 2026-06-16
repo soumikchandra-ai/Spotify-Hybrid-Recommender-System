@@ -1,6 +1,6 @@
 import pandas as pd
-from data_cleaning import data_for_content_filtering
-from content_based_filtering import transform_data,save_transformed_data
+from notebooks.data_cleaning import data_for_content_filtering
+from notebooks.content_based_filtering import transform_data,save_transformed_data
 #Path of filtered Data
 filtered_data_path="data/collab_filtered_data.csv"
 #Save Path
