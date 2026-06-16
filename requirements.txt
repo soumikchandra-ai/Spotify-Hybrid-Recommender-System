@@ -4,6 +4,6 @@ joblib
 scikit-learn
 category-encoders
 scipy
-dvc
 streamlit
 dask[dataframe]
+gdown
