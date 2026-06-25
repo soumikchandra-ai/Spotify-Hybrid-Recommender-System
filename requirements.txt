@@ -7,3 +7,4 @@ scipy
 streamlit
 dask[dataframe]
 gdown
+pytest-cov

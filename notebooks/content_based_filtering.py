@@ -63,7 +63,7 @@ def content_recommend(song_name,artist_name,songs_data,transformed_data,k=10):
     song_index=song_row.index[0]
 
     # sparse matrix row already has shape (1,n_features)
-    input_vector=transformed_data[song_index]
+    input_vector=transformed_data[song_index].reshape(1,-1)
 
     similarity_scores=calculate_similarity_scores(input_vector,transformed_data)
 
@@ -103,7 +103,7 @@ def test_recommendations(data_path,song_name,k=10):
 
     song_index=song_row.index[0]
 
-    input_vector=transformed_data[song_index]
+    input_vector=transformed_data[song_index].reshape(1,-1)
 
     similarity_scores=calculate_similarity_scores(input_vector,transformed_data)
 
@@ -116,6 +116,3 @@ def test_recommendations(data_path,song_name,k=10):
     top_k_songs=data.iloc[top_k_songs_indexes]
 
     print(top_k_songs)
-
-if __name__=="__main__":
-    test_recommendations(CLEANED_DATA_PATH,"Somebody Told Me")

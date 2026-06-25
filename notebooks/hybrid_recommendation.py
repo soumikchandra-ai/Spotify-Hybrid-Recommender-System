@@ -44,7 +44,8 @@ class HybridRecommenderSystem:
     def __normalize_similarities(self,similarity_scores):
         minimum=np.min(similarity_scores)
         maximum=np.max(similarity_scores)
-        
+        if maximum == minimum:
+            return np.zeros_like(similarity_scores)
         normalized_scores=(similarity_scores-minimum)/(maximum-minimum)
         return normalized_scores
     
